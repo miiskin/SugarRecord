@@ -15,6 +15,7 @@ public enum CoreDataOptions {
             options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(value: true)
             options[NSInferMappingModelAutomaticallyOption] = NSNumber(value: false)
             options[NSSQLitePragmasOption] = sqliteOptions as AnyObject?
+            options[NSPersistentStoreFileProtectionKey] = FileProtectionType.completeUnlessOpen as AnyObject
             return options
         case .migration:
             var sqliteOptions: [String: String] = [String: String] ()
@@ -23,6 +24,7 @@ public enum CoreDataOptions {
             options[NSMigratePersistentStoresAutomaticallyOption] = NSNumber(value: true)
             options[NSInferMappingModelAutomaticallyOption] = NSNumber(value: true)
             options[NSSQLitePragmasOption] = sqliteOptions as AnyObject?
+            options[NSPersistentStoreFileProtectionKey] = FileProtectionType.completeUnlessOpen as AnyObject
             return options
         }
     }
